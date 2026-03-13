@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="jetrover" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="$(find jetrover_description)/urdf/materials.xacro"/>
+    <xacro:include filename="$(find jetrover_description)/urdf/inertial_matrix.xacro" />
+
+    <xacro:include filename="$(find jetrover_description)/urdf/lidar_a1.urdf.xacro"/>
+
+    <xacro:include filename="$(find jetrover_description)/urdf/car_acker.urdf.xacro"/>
+    <xacro:include filename="$(find jetrover_description)/urdf/lidar.urdf.xacro"/>
+
+    <xacro:include filename="$(find jetrover_description)/urdf/imu.urdf.xacro"/>
+    <xacro:include filename="$(find jetrover_description)/urdf/depth_camera.urdf.xacro"/>
+    <xacro:include filename="$(find jetrover_description)/urdf/common.urdf.xacro"/>
+    <xacro:include filename="$(find jetrover_description)/urdf/connect.urdf.xacro"/>
+    <xacro:include filename="$(find jetrover_description)/urdf/arm.urdf.xacro"/>
+    <xacro:include filename="$(find jetrover_description)/urdf/gripper.urdf.xacro"/>
+</robot>
