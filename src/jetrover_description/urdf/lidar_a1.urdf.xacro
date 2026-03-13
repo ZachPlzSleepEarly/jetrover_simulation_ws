@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="lidar_a1" xmlns:xacro="http://ros.org/wiki/xacro" >
   <xacro:property name="M_PI" value="3.1415926535897931"/>
+
+  <!-- A1 LiDAR 坐标系 -->
   <link name="lidar_frame" />
+
+  <!-- A1 LiDAR 坐标系和 A1 LiDAR 雷达本体 联结 -->
   <joint
     name="lidar_frame_joint"
     type="fixed">

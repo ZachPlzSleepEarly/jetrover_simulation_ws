@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="arm" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:property name="M_PI"   value="3.1415926535897931"/>
-
+  
+  <!-- 第一节机械臂本体 -->
   <link
     name="link1">
     <inertial>
@@ -39,6 +40,7 @@
     </collision>
   </link>
 
+  <!-- 伺服电机1 -->
   <link
     name="servo_link1">
     <inertial>
@@ -75,6 +77,8 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- 第一节机械臂和伺服电机1 联结 -->
   <joint
     name="servo_joint1"
     type="fixed">
@@ -88,6 +92,8 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  
+  <!-- 第二节机械臂本体 -->
   <link
     name="link2">
     <inertial>
@@ -124,6 +130,8 @@
       </geometry>
     </collision>
   </link>
+  
+  <!-- 第二节机械臂和伺服电机1 联结 -->
   <joint
     name="joint2"
     type="revolute">
@@ -142,6 +150,8 @@
       effort="1000"
       velocity="10" />
   </joint>
+  
+  <!-- 第三节机械臂本体 -->
   <link
     name="link3">
     <inertial>
@@ -178,6 +188,8 @@
       </geometry>
     </collision>
   </link>
+  
+  <!-- 第三节机械臂本体和第二节机械臂本体 联结 -->
   <joint
     name="joint3"
     type="revolute">
@@ -196,6 +208,8 @@
       effort="1000"
       velocity="10" />
   </joint>
+  
+  <!-- 第四节机械臂本体 -->
   <link
     name="link4">
     <inertial>
@@ -232,6 +246,8 @@
       </geometry>
     </collision>
   </link>
+  
+  <!-- 第三节机械臂和第四节机械臂 联结 -->
   <joint
     name="joint4"
     type="revolute">
@@ -250,6 +266,8 @@
       effort="1000"
       velocity="10" />
   </joint>
+  
+  <!-- 伺服电机2 -->
   <link
     name="servo_link2">
     <inertial>
@@ -286,6 +304,8 @@
       </geometry>
     </collision>
   </link>
+  
+  <!-- 第四节机械臂和伺服电机2 联结 -->
   <joint
     name="servo_joint2"
     type="fixed">
@@ -299,6 +319,8 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  
+  <!-- 夹爪旋转垫片 -->
   <link
     name="link5">
     <inertial>
@@ -335,6 +357,8 @@
       </geometry>
     </collision>
   </link>
+  
+  <!-- 夹爪旋转垫片和伺服电机2 联结 -->
   <joint
     name="joint5"
     type="revolute">
@@ -353,6 +377,8 @@
       effort="1000"
       velocity="10" />
   </joint>
+  
+  <!-- 夹爪底座 -->
   <link
     name="gripper_link">
     <inertial>
@@ -389,6 +415,8 @@
       </geometry>
     </collision>
   </link>
+  
+  <!-- 夹爪底座和夹爪旋转垫片 联结 -->
   <joint
     name="gripper_joint"
     type="fixed">
@@ -403,9 +431,10 @@
       xyz="0 0 0" />
   </joint>
 
-  <!-- end effector link -->
+  <!-- 末端执行器（坐标系） -->
   <link name="end_effector_link" />
-
+  
+  <!-- 末端执行器（坐标系）和夹爪旋转垫片 联结 -->
   <joint name="end_effector_joint" type="fixed">
     <origin xyz="0 0 0.08" rpy="0 0 0"/>
     <parent link="link5"/>

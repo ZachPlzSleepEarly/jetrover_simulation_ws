@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<robot name="jetrover" xmlns:xacro="http://ros.org/wiki/xacro" >
-  <xacro:property name="M_PI"               value="3.1415926535897931"/>
-  <link name="base_footprint"/>
-  <xacro:property name="base_link_mass"     value="1.6" /> 
-  <xacro:property name="base_link_w"        value="0.30"/>
-  <xacro:property name="base_link_h"        value="0.15"/>
-  <xacro:property name="base_link_d"        value="0.10"/>
+<robot name="jetrover" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+  <link name="base_footprint" />
+  <xacro:property name="base_link_mass" value="1.6" />
+  <xacro:property name="base_link_w" value="0.30" />
+  <xacro:property name="base_link_h" value="0.15" />
+  <xacro:property name="base_link_d" value="0.10" />
 
+  <!-- 车底钢板和垂直投影 联结 -->
   <joint name="base_joint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-    <origin xyz="0.0 0.0 ${0.05 + 0.0654867643253843}" rpy="0 0 0"/>
+    <parent link="base_footprint" />   <!-- 机器人垂直投影到地面的坐标系 -->
+    <child link="base_link" />
+    <origin xyz="0.0 0.0 ${0.05 + 0.0654867643253843}" rpy="0 0 0" />
   </joint>
-  <link name="w_link"/>
+  <link name="w_link" />
   <joint
     name="w_joint"
     type="fixed">
@@ -26,9 +27,12 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  
+  <!-- 车底钢板 -->
   <link
     name="base_link">
-    <xacro:box_inertial m="${base_link_mass}" w="${base_link_w}" h="${base_link_h}" d="${base_link_d}" x="0" y="0" z="-0.15" />
+    <xacro:box_inertial m="${base_link_mass}" w="${base_link_w}" h="${base_link_h}"
+      d="${base_link_d}" x="0" y="0" z="-0.15" />
     <visual>
       <origin
         xyz="0 0 0"
@@ -37,7 +41,7 @@
         <mesh
           filename="package://jetrover_description/meshes/acker/base_link.stl" />
       </geometry>
-      <material name="black"/>
+      <material name="black" />
     </visual>
     <collision>
       <origin
@@ -49,6 +53,8 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- 车底中间层钢板 -->
   <link
     name="base_green_link">
     <inertial>
@@ -73,7 +79,7 @@
         <mesh
           filename="package://jetrover_description/meshes/acker/base_green_link.stl" />
       </geometry>
-      <material name="green"/>
+      <material name="green" />
     </visual>
     <collision>
       <origin
@@ -85,6 +91,8 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- 车底钢板 中间夹层钢板 联结 -->
   <joint
     name="base_green_joint"
     type="fixed">
@@ -98,6 +106,8 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  
+  <!-- 左前轮 -->
   <link
     name="wheel_left_front_link">
     <inertial>
@@ -122,7 +132,7 @@
         <mesh
           filename="package://jetrover_description/meshes/acker/wheel_left_front_link.stl" />
       </geometry>
-      <material name="black"/>
+      <material name="black" />
     </visual>
     <collision>
       <origin
@@ -134,6 +144,8 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- 左前轮和底部钢板 联结 -->
   <joint
     name="wheel_left_front_joint"
     type="fixed">
@@ -147,6 +159,8 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  
+  <!-- 左后轮 -->
   <link
     name="wheel_left_back_link">
     <inertial>
@@ -171,7 +185,7 @@
         <mesh
           filename="package://jetrover_description/meshes/acker/wheel_left_back_link.stl" />
       </geometry>
-      <material name="black"/>
+      <material name="black" />
     </visual>
     <collision>
       <origin
@@ -183,6 +197,8 @@
       </geometry>
     </collision>
   </link>
+  
+  <!-- 左后轮和底部钢板 联结 -->
   <joint
     name="wheel_left_back_joint"
     type="fixed">
@@ -196,6 +212,8 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  
+  <!-- 右前轮 -->
   <link
     name="wheel_right_front_link">
     <inertial>
@@ -220,7 +238,7 @@
         <mesh
           filename="package://jetrover_description/meshes/acker/wheel_right_front_link.stl" />
       </geometry>
-      <material name="black"/>
+      <material name="black" />
     </visual>
     <collision>
       <origin
@@ -232,6 +250,8 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- 后前轮和底部钢板连接点 -->
   <joint
     name="wheel_right_front_joint"
     type="fixed">
@@ -245,6 +265,8 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
+  <!-- 右后轮 -->
   <link
     name="wheel_right_back_link">
     <inertial>
@@ -269,7 +291,7 @@
         <mesh
           filename="package://jetrover_description/meshes/acker/wheel_right_back_link.stl" />
       </geometry>
-      <material name="black"/>
+      <material name="black" />
     </visual>
     <collision>
       <origin
@@ -281,6 +303,8 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- 右后轮和底部钢板 联结 -->
   <joint
     name="wheel_right_back_joint"
     type="fixed">

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<robot name="common" xmlns:xacro="http://ros.org/wiki/xacro" >
+<robot name="common" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- 黑色保护罩 -->
   <link
     name="back_shell_black_link">
     <inertial>
@@ -24,7 +26,7 @@
         <mesh
           filename="package://jetrover_description/meshes/common/back_shell_black_link.stl" />
       </geometry>
-      <material name="black"/>
+      <material name="black" />
     </visual>
     <collision>
       <origin
@@ -36,6 +38,8 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- 黑色保护罩和车底钢板 联结 -->
   <joint
     name="back_shell_black_joint"
     type="fixed">
@@ -49,6 +53,8 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
+  <!-- 车顶钢板 -->
   <link
     name="back_shell_green_link">
     <inertial>
@@ -73,7 +79,7 @@
         <mesh
           filename="package://jetrover_description/meshes/common/back_shell_green_link.stl" />
       </geometry>
-      <material name="green"/>
+      <material name="green" />
     </visual>
     <collision>
       <origin
@@ -85,6 +91,8 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- 车顶钢板和车底钢板 联结 -->
   <joint
     name="back_shell_green_joint"
     type="fixed">
