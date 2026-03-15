@@ -27,7 +27,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
-  
+
   <!-- 车底钢板 -->
   <link
     name="base_link">
@@ -106,7 +106,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
-  
+
   <!-- 左前轮 -->
   <link
     name="wheel_left_front_link">
@@ -159,7 +159,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
-  
+
   <!-- 左后轮 -->
   <link
     name="wheel_left_back_link">
@@ -197,11 +197,11 @@
       </geometry>
     </collision>
   </link>
-  
+
   <!-- 左后轮和底部钢板 联结 -->
   <joint
     name="wheel_left_back_joint"
-    type="fixed">
+    type="continuous">
     <origin
       xyz="0.106753653016542 -0.0920004072996187 -0.0658214520621466"
       rpy="0 0 3.14158803228829" />
@@ -210,9 +210,9 @@
     <child
       link="wheel_left_back_link" />
     <axis
-      xyz="0 0 0" />
+      xyz="0 1 0" />
   </joint>
-  
+
   <!-- 右前轮 -->
   <link
     name="wheel_right_front_link">
@@ -307,7 +307,7 @@
   <!-- 右后轮和底部钢板 联结 -->
   <joint
     name="wheel_right_back_joint"
-    type="fixed">
+    type="continuous">
     <origin
       xyz="0.10675 0.091848 -0.065821"
       rpy="0 0 3.1416" />
@@ -316,6 +316,9 @@
     <child
       link="wheel_right_back_link" />
     <axis
-      xyz="0 0 0" />
+      xyz="0 1 0" />
   </joint>
+
+  <!-- <xacro:include filename="$(find jetrover_description)/gazebo/car_acker_gazebo.xacro" /> -->
+
 </robot>

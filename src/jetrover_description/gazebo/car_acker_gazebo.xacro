@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <!-- ============================= -->
+    <!-- wheel contact parameters -->
+    <!-- ============================= -->
+
+    <gazebo reference="wheel_left_front_link">
+        <mu1>1.0</mu1>      <!-- 滚动方向摩擦系数 -->
+        <mu2>1.0</mu2>      <!-- 横向滑动阻力摩擦系数 -->
+        <kp>1000000.0</kp>  <!-- 地面对轮子的“硬度” -->
+        <kd>10.0</kd>       <!-- 结束阻尼。太小机器人会弹跳 -->
+    </gazebo>
+
+    <gazebo reference="wheel_right_front_link">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <kp>1000000.0</kp>
+        <kd>10.0</kd>
+    </gazebo>
+
+    <gazebo reference="wheel_left_back_link">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <kp>1000000.0</kp>
+        <kd>10.0</kd>
+    </gazebo>
+
+    <gazebo reference="wheel_right_back_link">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <kp>1000000.0</kp>
+        <kd>10.0</kd>
+    </gazebo>
+
+
+    <!-- ============================= -->
+    <!-- joint damping -->
+    <!-- ============================= -->
+
+    <gazebo reference="wheel_left_front_joint">
+        <damping>0.0001</damping>
+    </gazebo>
+
+    <gazebo reference="wheel_right_front_joint">
+        <damping>0.0001</damping>
+    </gazebo>
+
+    <gazebo reference="wheel_left_back_joint">
+        <damping>0.0001</damping>
+    </gazebo>
+
+    <gazebo reference="wheel_right_back_joint">
+        <damping>0.0001</damping>
+    </gazebo>
+
+
+    <!-- ============================= -->
+    <!-- ackermann drive plugin -->
+    <!-- ============================= -->
+
+    <gazebo>
+        <plugin
+            name="ackermann_drive"
+            filename="gz-sim-ackermann-steering-system">
+
+            <!-- rear wheels (drive) -->
+            <left_joint>wheel_left_back_joint</left_joint>
+            <right_joint>wheel_right_back_joint</right_joint>
+
+            <!-- steering -->
+            <left_steering_joint>wheel_left_front_joint</left_steering_joint>
+            <right_steering_joint>wheel_right_front_joint</right_steering_joint>
+
+            <!-- geometry -->
+            <wheel_separation>0.183</wheel_separation>
+            <wheel_base>0.213</wheel_base>
+
+            <wheel_radius>0.05</wheel_radius>
+
+            <!-- topics -->
+            <topic>cmd_vel</topic>
+
+        </plugin>
+    </gazebo>
+
+</robot>
