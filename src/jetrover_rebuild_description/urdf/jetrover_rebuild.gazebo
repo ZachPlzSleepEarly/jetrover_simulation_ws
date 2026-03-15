@@ -15,13 +15,19 @@
   </plugin>
 
   <!-- 差速驱动插件 -->
-   <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
-    <left_joint>shaft_joint_left_front</left_joint>
-    <rightjoint>shaft_joint_right_front</rightjoint>
+  <plugin filename="gz-sim-diff-drive-system"
+        name="gz::sim::systems::DiffDrive">
+
+    <left_joint>joint_left_back</left_joint>
+    <right_joint>joint_right_back</right_joint>
+
     <wheel_separation>0.197</wheel_separation>
     <wheel_radius>0.05</wheel_radius>
+
     <odom_publish_frequency>30</odom_publish_frequency>
+
     <topic>/cmd_vel</topic>
+
     <tf_topic>/tf</tf_topic>
     <frame_id>odom</frame_id>
     <odom_topic>odom</odom_topic>
