@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="jetrover" xmlns:xacro="http://ros.org/wiki/xacro">
+
     <xacro:include filename="$(find jetrover_description)/urdf/materials.xacro" />
     <xacro:include filename="$(find jetrover_description)/urdf/inertial_matrix.xacro" />
 
-    <!-- 车底&中间层钢板，车轮 -->
-    <xacro:include filename="$(find jetrover_description)/urdf/car_acker.urdf.xacro" />
-
-    <!-- 车顶钢板、车顶黑色保护罩 -->
-    <xacro:include filename="$(find jetrover_description)/urdf/common.urdf.xacro" />
-
-    <!-- A1 LiDAR 雷达和车底钢板 -->
-    <xacro:include filename="$(find jetrover_description)/urdf/lidar.urdf.xacro" />
-
-    <!-- A1 LiDAR 坐标系 和 A1 LiDAR 本体 -->
+    <!-- 激光雷达和底座 -->
     <xacro:include filename="$(find jetrover_description)/urdf/lidar_a1.urdf.xacro" />
-
-    <!-- IMU 本体和车底钢板 -->
+    <xacro:include filename="$(find jetrover_description)/urdf/lidar.urdf.xacro" />
+    <!-- 车载传感器 -->
     <xacro:include filename="$(find jetrover_description)/urdf/imu.urdf.xacro" />
-
-    <!-- 相机坐标系，本体，底座 -->
     <xacro:include filename="$(find jetrover_description)/urdf/depth_camera.urdf.xacro" />
-
-    <!-- 第一节机械臂和车底钢板 联结 -->
+    <!-- 机械臂 -->
     <xacro:include filename="$(find jetrover_description)/urdf/connect.urdf.xacro" />
-
-    <!-- 机械臂和机械臂末端坐标系 -->
     <xacro:include filename="$(find jetrover_description)/urdf/arm.urdf.xacro" />
-
-    <!-- 夹爪构造 -->
     <xacro:include filename="$(find jetrover_description)/urdf/gripper.urdf.xacro" />
+    <!-- 底盘结构 -->
+    <xacro:include filename="$(find jetrover_description)/urdf/car_acker.urdf.xacro" />
+    <xacro:include filename="$(find jetrover_description)/urdf/common.urdf.xacro" />
 </robot>

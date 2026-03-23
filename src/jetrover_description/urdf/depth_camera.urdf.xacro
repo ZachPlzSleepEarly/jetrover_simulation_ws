@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<robot name="depth_camera" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="M_PI" value="3.1415926535897931" />
-
-  <!-- 相机底座 -->
+<robot name="depth_camera" xmlns:xacro="http://ros.org/wiki/xacro" >
+  <xacro:property name="M_PI"   value="3.1415926535897931"/>
   <link
     name="camera_connect_link">
     <inertial>
@@ -27,7 +25,7 @@
         <mesh
           filename="package://jetrover_description/meshes/arm/camera_connect_link.STL" />
       </geometry>
-      <material name="black" />
+      <material name="black"/>
     </visual>
     <collision>
       <origin
@@ -39,8 +37,6 @@
       </geometry>
     </collision>
   </link>
-
-  <!-- 相机底座和机械臂4（从下往上数） 联结-->
   <joint
     name="camera_connect_joint"
     type="fixed">
@@ -54,8 +50,6 @@
     <axis
       xyz="0 0 0" />
   </joint>
-
-  <!-- 相机本体 -->
   <link
     name="depth_cam_link">
     <inertial>
@@ -96,14 +90,12 @@
       </geometry>
     </collision>
   </link>
-
-  <!-- 相机本体和相机底座 联结-->
   <joint
     name="depth_cam_joint"
     type="fixed">
     <origin
       xyz="0 0.0 0.014475"
-      rpy="${M_PI} -${M_PI/2} -${M_PI/2}" />
+      rpy="${M_PI} -${M_PI/2} -${M_PI/2}"/>
     <parent
       link="camera_connect_link" />
     <child
@@ -111,11 +103,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
-
-  <!-- 相机坐标系 -->
   <link name="depth_cam_frame" />
-
-  <!-- 相机坐标系和相机本体 联结 -->
   <joint
     name="depth_cam_joint_sim"
     type="fixed">

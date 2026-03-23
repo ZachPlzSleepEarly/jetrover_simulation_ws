@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="imu" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:property name="M_PI" value="3.1415926535897931"/>
-
-  <!-- IMU 本体 -->
   <link
     name="imu_link">
     <inertial>
@@ -39,8 +37,6 @@
       </geometry>
     </collision>
   </link>
-
-  <!-- IMU 本体和彻底钢板 联结 -->
   <joint
     name="imu_joint"
     type="fixed">
