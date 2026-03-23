@@ -8,6 +8,7 @@
   <license>TODO: License declaration</license>
 
   <depend>urdf</depend>
+
   <depend>joint_state_publisher</depend>
   <depend>joint_state_publisher_gui</depend>
   <depend>robot_state_publisher</depend>
@@ -20,6 +21,6 @@
   <test_depend>python3-pytest</test_depend>
 
   <export>
-    <build_type>ament_cmake</build_type>
+    <build_type>ament_python</build_type>
   </export>
 </package>

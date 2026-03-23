@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="gripper" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:property name="M_PI" value="3.1415926535897931" />
+  <xacro:property name="M_PI"   value="3.1415926535897931"/>
 
-  <!-- 左夹爪 -->
   <link
     name="r_link">
     <inertial>
@@ -27,7 +26,7 @@
         <mesh
           filename="package://jetrover_description/meshes/gripper/r_link.STL" />
       </geometry>
-      <material name="black" />
+      <material name="black"/>
     </visual>
     <collision>
       <origin
@@ -39,8 +38,6 @@
       </geometry>
     </collision>
   </link>
-  
-  <!-- 左夹爪和夹爪底座 联结-->
   <joint
     name="r_joint"
     type="revolute">
@@ -59,8 +56,6 @@
       effort="1000"
       velocity="10" />
   </joint>
-  
-  <!-- 右夹爪 -->
   <link
     name="l_link">
     <inertial>
@@ -85,7 +80,7 @@
         <mesh
           filename="package://jetrover_description/meshes/gripper/l_link.STL" />
       </geometry>
-      <material name="black" />
+      <material name="black"/>
     </visual>
     <collision>
       <origin
@@ -97,8 +92,6 @@
       </geometry>
     </collision>
   </link>
-  
-  <!-- 右夹爪和夹爪底座 联结 -->
   <joint
     name="l_joint"
     type="revolute">
@@ -121,8 +114,6 @@
       multiplier="-1"
       offset="0" />
   </joint>
-  
-  <!-- 左夹爪支撑连杆 -->
   <link
     name="l_in_link">
     <inertial>
@@ -147,7 +138,7 @@
         <mesh
           filename="package://jetrover_description/meshes/gripper/l_in_link.STL" />
       </geometry>
-      <material name="black" />
+      <material name="black"/>
     </visual>
     <collision>
       <origin
@@ -159,8 +150,6 @@
       </geometry>
     </collision>
   </link>
-  
-  <!-- 左夹爪支撑力连杆和夹爪底座 联结 -->
   <joint
     name="l_in_joint"
     type="revolute">
@@ -183,8 +172,6 @@
       multiplier="-1"
       offset="0" />
   </joint>
-  
-  <!-- 左手指 -->
   <link
     name="l_out_link">
     <inertial>
@@ -209,7 +196,7 @@
         <mesh
           filename="package://jetrover_description/meshes/gripper/l_out_link.STL" />
       </geometry>
-      <material name="black" />
+      <material name="black"/>
     </visual>
     <collision>
       <origin
@@ -221,8 +208,6 @@
       </geometry>
     </collision>
   </link>
-  
-  <!-- 左手指和左支撑连杆 联结 -->
   <joint
     name="l_out_joint"
     type="revolute">
@@ -245,8 +230,6 @@
       multiplier="1"
       offset="0" />
   </joint>
-  
-  <!-- 右支撑连杆 -->
   <link
     name="r_in_link">
     <inertial>
@@ -271,7 +254,7 @@
         <mesh
           filename="package://jetrover_description/meshes/gripper/r_in_link.STL" />
       </geometry>
-      <material name="black" />
+      <material name="black"/>
     </visual>
     <collision>
       <origin
@@ -283,8 +266,6 @@
       </geometry>
     </collision>
   </link>
-  
-  <!-- 右支撑连杆和夹爪底座 联结 -->
   <joint
     name="r_in_joint"
     type="revolute">
@@ -307,8 +288,6 @@
       multiplier="-1"
       offset="0" />
   </joint>
-  
-  <!-- 右手指 -->
   <link
     name="r_out_link">
     <inertial>
@@ -333,7 +312,7 @@
         <mesh
           filename="package://jetrover_description/meshes/gripper/r_out_link.STL" />
       </geometry>
-      <material name="black" />
+      <material name="black"/>
     </visual>
     <collision>
       <origin
@@ -345,8 +324,6 @@
       </geometry>
     </collision>
   </link>
-  
-  <!-- 右手指和右支撑连杆 联结 -->
   <joint
     name="r_out_joint"
     type="revolute">

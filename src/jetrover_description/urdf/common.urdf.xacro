@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="common" xmlns:xacro="http://ros.org/wiki/xacro">
-
-  <!-- 黑色保护罩 -->
+  <!-- 显示器保护壳连接体 -->
   <link
     name="back_shell_black_link">
     <inertial>
@@ -38,8 +37,7 @@
       </geometry>
     </collision>
   </link>
-
-  <!-- 黑色保护罩和车底钢板 联结 -->
+  <!-- 显示器保护壳连接体与底盘连接 -->
   <joint
     name="back_shell_black_joint"
     type="fixed">
@@ -54,7 +52,7 @@
       xyz="0 0 0" />
   </joint>
 
-  <!-- 车顶钢板 -->
+  <!-- 底盘结构上层组件 -->
   <link
     name="back_shell_green_link">
     <inertial>
@@ -91,8 +89,7 @@
       </geometry>
     </collision>
   </link>
-
-  <!-- 车顶钢板和车底钢板 联结 -->
+  <!-- 底盘结构上层组件与底盘连接 -->
   <joint
     name="back_shell_green_joint"
     type="fixed">
@@ -106,4 +103,6 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
+
 </robot>
