@@ -23,6 +23,7 @@ setup(
         (os.path.join('share', PACKAGE_NAME, 'meshes/gripper'), glob(os.path.join('meshes/gripper', '*.*'))),
         (os.path.join('share', PACKAGE_NAME, 'meshes/mecanum'), glob(os.path.join('meshes/mecanum', '*.*'))),
         (os.path.join('share', PACKAGE_NAME, 'meshes/tank'), glob(os.path.join('meshes/tank', '*.*'))),
+        (os.path.join('share', PACKAGE_NAME, 'scripts'), glob(os.path.join('scripts', '*.*'))),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -35,4 +36,7 @@ setup(
         'console_scripts': [
         ],
     },
+    scripts=[
+        'scripts/cmd_vel_to_ackermann_ref.py',
+    ],
 )
