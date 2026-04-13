@@ -1,0 +1,910 @@
+<?xml version="1.0"?>
+<robot name="assembly_simulation" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find jetrover_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find jetrover_description)/urdf/assembly_simulation.ros2control" />
+  <xacro:include filename="$(find jetrover_description)/urdf/assembly_simulation.gazebo" />
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.0067982582159906695 0.0012157481048895304 -0.020578960201385596"
+        rpy="0.0 0.0 0.0" />
+      <mass value="0.4109600119604506" />
+      <inertia ixx="0.0010913317770443174" iyy="0.0035379802831414023" izz="0.004549932585128713"
+        ixy="4.787883371736895e-05" iyz="-1.0852253114523492e-05" ixz="0.00011255987326628367" />
+    </inertial>
+    <visual name="base_link_visual">
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/base_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="base_link_collision">
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/base_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="front_left_sterring_link">
+    <inertial>
+      <origin xyz="-0.004046761892184225 -0.006035026500165257 -0.019363389865389154"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.07976552705950153" />
+      <inertia ixx="1.8978782625800545e-05" iyy="2.183901609982791e-05" izz="2.5596290041883865e-05"
+        ixy="3.5006816117792022e-06" iyz="-1.4605534916832075e-06" ixz="3.17939436578847e-06" />
+    </inertial>
+    <visual name="front_left_sterring_link_visual">
+      <origin xyz="-0.11123217 0.06368303 -0.02126492445928225"
+        rpy="3.141592653589793 -0.0 -4.61955986574744e-33" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_left_sterring_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="front_left_sterring_link_collision">
+      <origin xyz="-0.11123217 0.06368303 -0.02126492445928225"
+        rpy="3.141592653589793 -0.0 -4.61955986574744e-33" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_left_sterring_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="rear_right_wheel_link">
+    <inertial>
+      <origin xyz="-4.8838706945275594e-09 -4.295349098626389e-09 0.01280000084509128"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="1.0742550415244152" />
+      <inertia ixx="0.0005156466721912382" iyy="0.000515646672191266" izz="0.0009139560470469363"
+        ixy="8.673617379884035e-19" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual name="rear_right_wheel_link_visual">
+      <origin xyz="-4.8838706945275594e-09 -4.295349107508173e-09 0.006800000845091283"
+        rpy="-1.5707963267948966 1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/rear_right_wheel_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="rear_right_wheel_link_collision">
+      <origin xyz="-4.8838706945275594e-09 -4.295349107508173e-09 0.006800000845091283"
+        rpy="-1.5707963267948966 1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/rear_right_wheel_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="rear_right_wheel_tire">
+    <inertial>
+      <origin xyz="-4.8838706945275594e-09 -4.295349116389957e-09 -0.012799999154908726"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.06316889720600809" />
+      <inertia ixx="7.066062313314226e-05" iyy="7.066062313314616e-05" izz="0.00013442151818746702"
+        ixy="5.421010862427522e-20" iyz="-5.421010862427522e-20" ixz="0.0" />
+    </inertial>
+    <visual name="rear_right_wheel_tire_visual">
+      <origin xyz="-4.8838706945275594e-09 -4.295349107508173e-09 -0.018799999154908723"
+        rpy="-1.5707963267948966 1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/rear_right_wheel_tire.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="rear_right_wheel_tire_collision">
+      <origin xyz="-4.8838706945275594e-09 -4.295349107508173e-09 -0.018799999154908723"
+        rpy="-1.5707963267948966 1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/rear_right_wheel_tire.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="back_shell_green_link">
+    <inertial>
+      <origin xyz="-0.10672400926251399 0.06191583961052936 -0.047361790831857854"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="1.490908993099616" />
+      <inertia ixx="0.004670014598120796" iyy="0.01266510603378274" izz="0.014386663467940293"
+        ixy="1.2607305340495994e-05" iyz="-4.945158285442334e-06" ixz="0.0010742484529362006" />
+    </inertial>
+    <visual name="back_shell_green_link_visual">
+      <origin xyz="-0.1253717600000026 0.06196329000000034 -0.05344999394079745"
+        rpy="-3.141592653589793 4.7331654313260666e-30 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/back_shell_green_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="back_shell_green_link_collision">
+      <origin xyz="-0.1253717600000026 0.06196329000000034 -0.05344999394079745"
+        rpy="-3.141592653589793 4.7331654313260666e-30 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/back_shell_green_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="back_shell_black_link">
+    <inertial>
+      <origin xyz="-0.0819780467070293 0.05624562178099485 -0.09124490475010961" rpy="0.0 -0.0 0.0" />
+      <mass value="3.8090355932386615" />
+      <inertia ixx="0.01179823416161202" iyy="0.006975042260155606" izz="0.010452768070647774"
+        ixy="2.6486934062127914e-05" iyz="2.4512846847634252e-05" ixz="-8.487707382538734e-05" />
+    </inertial>
+    <visual name="back_shell_black_link_visual">
+      <origin xyz="-0.05859865489088415 0.0563208999999996 -0.07799512270781968"
+        rpy="3.141592653589791 -3.2751579226442e-15 3.4421053255609813e-60" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/back_shell_black_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="back_shell_black_link_collision">
+      <origin xyz="-0.05859865489088415 0.0563208999999996 -0.07799512270781968"
+        rpy="3.141592653589791 -3.2751579226442e-15 3.4421053255609813e-60" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/back_shell_black_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="front_right_steering_link">
+    <inertial>
+      <origin xyz="-0.0040585614493465275 0.006054798705959393 -0.01932205539974504"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.07950209290283795" />
+      <inertia ixx="1.8849670940109496e-05" iyy="2.1724102830567938e-05" izz="2.554017582735951e-05"
+        ixy="-3.5096455449820088e-06" iyz="1.4834853424957792e-06" ixz="3.1526957765012193e-06" />
+    </inertial>
+    <visual name="front_right_steering_link_visual">
+      <origin xyz="-0.11123217 -0.06368303 -0.02126492467044681"
+        rpy="3.141592653589793 -0.0 -4.61955986574744e-33" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_right_steering_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="front_right_steering_link_collision">
+      <origin xyz="-0.11123217 -0.06368303 -0.02126492467044681"
+        rpy="3.141592653589793 -0.0 -4.61955986574744e-33" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_right_steering_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="rear_left_wheel_tire">
+    <inertial>
+      <origin xyz="-4.8838706945275594e-09 4.295349116389957e-09 -0.012800000617187503"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.06316889720600809" />
+      <inertia ixx="7.066062313314237e-05" iyy="7.066062313314616e-05" izz="0.00013442151818746702"
+        ixy="-5.421010862427522e-20" iyz="0.0" ixz="1.0842021724855044e-19" />
+    </inertial>
+    <visual name="rear_left_wheel_tire_visual">
+      <origin xyz="-4.8838706945275594e-09 4.295349107508173e-09 -0.006800000617187507"
+        rpy="1.5707963267948966 -1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/rear_left_wheel_tire.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="rear_left_wheel_tire_collision">
+      <origin xyz="-4.8838706945275594e-09 4.295349107508173e-09 -0.006800000617187507"
+        rpy="1.5707963267948966 -1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/rear_left_wheel_tire.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="rear_left_wheel_link">
+    <inertial>
+      <origin xyz="-4.8838706945275594e-09 4.295349098626389e-09 0.012799999382812502"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="1.0742550415244152" />
+      <inertia ixx="0.0005156466721912382" iyy="0.0005156466721912695" izz="0.0009139560470469363"
+        ixy="-8.673617379884035e-19" iyz="-8.673617379884035e-19" ixz="1.734723475976807e-18" />
+    </inertial>
+    <visual name="rear_left_wheel_link_visual">
+      <origin xyz="-4.8838706945275594e-09 4.295349107508173e-09 0.018799999382812498"
+        rpy="1.5707963267948966 -1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/rear_left_wheel_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="rear_left_wheel_link_collision">
+      <origin xyz="-4.8838706945275594e-09 4.295349107508173e-09 0.018799999382812498"
+        rpy="1.5707963267948966 -1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/rear_left_wheel_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="front_right_wheel_link">
+    <inertial>
+      <origin xyz="-4.712778238769033e-09 -5.938493341517415e-10 -0.01279999700683593"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="1.0742550415244152" />
+      <inertia ixx="0.0005156466721912382" iyy="0.000515646672191266" izz="0.0009139560470469293"
+        ixy="-8.673617379884035e-19" iyz="0.0" ixz="1.734723475976807e-18" />
+    </inertial>
+    <visual name="front_right_wheel_link_visual">
+      <origin xyz="-4.712778238769033e-09 -5.938493252699573e-10 -0.006799997006835934"
+        rpy="1.5707963267948966 -1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_right_wheel_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="front_right_wheel_link_collision">
+      <origin xyz="-4.712778238769033e-09 -5.938493252699573e-10 -0.006799997006835934"
+        rpy="1.5707963267948966 -1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_right_wheel_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="front_right_wheel_tire">
+    <inertial>
+      <origin xyz="-4.712778238769033e-09 5.938493163881731e-10 -0.012800002993164075"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.06316889720600809" />
+      <inertia ixx="7.066062313314248e-05" iyy="7.066062313314594e-05" izz="0.00013442151818746691"
+        ixy="-5.421010862427522e-20" iyz="-5.421010862427522e-20" ixz="0.0" />
+    </inertial>
+    <visual name="front_right_wheel_tire_visual">
+      <origin xyz="-4.712778238769033e-09 5.938493252699573e-10 -0.01880000299316407"
+        rpy="-1.5707963267948966 1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_right_wheel_tire.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="front_right_wheel_tire_collision">
+      <origin xyz="-4.712778238769033e-09 5.938493252699573e-10 -0.01880000299316407"
+        rpy="-1.5707963267948966 1.9745049295806095e-49 0.0" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_right_wheel_tire.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="front_left_wheel_link">
+    <inertial>
+      <origin xyz="4.712837835540995e-09 -3.82675686694256e-10 -0.01280000459027951"
+        rpy="0.0 -5.519601233047983e-22 0.0" />
+      <mass value="1.0742550415244152" />
+      <inertia ixx="0.0005156466721912363" iyy="0.0005156466721912716" izz="0.0009139560470469344"
+        ixy="-1.0647955665409556e-18" iyz="-1.2363407462638606e-18" ixz="-1.3347216463406814e-18" />
+    </inertial>
+    <visual name="front_left_wheel_link_visual">
+      <origin xyz="4.712837835540995e-09 -3.826756778124718e-10 -0.018800004590279508"
+        rpy="-1.5707963267948968 1.835030988038513e-17 3.141592653589793" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_left_wheel_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="front_left_wheel_link_collision">
+      <origin xyz="4.712837835540995e-09 -3.826756778124718e-10 -0.018800004590279508"
+        rpy="-1.5707963267948968 1.835030988038513e-17 3.141592653589793" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_left_wheel_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="front_left_wheel_tire">
+    <inertial>
+      <origin xyz="-1.6851433572995234e-07 -2.4264219860015145e-08 0.01279999541076414"
+        rpy="0.0 -2.3509887017814206e-38 0.0" />
+      <mass value="0.06316889720600809" />
+      <inertia ixx="7.066062314389193e-05" iyy="7.06606231333962e-05" izz="0.0001344215181764672"
+        ixy="1.6398015757757014e-15" iyz="-1.2629187929810715e-10" ixz="-8.278876132816057e-10" />
+    </inertial>
+    <visual name="front_left_wheel_tire_visual">
+      <origin xyz="-9.060881579259217e-08 -1.2379956384478419e-08 0.0067999954112816854"
+        rpy="-1.5707943460843192 -1.2984253322138014e-05 -2.571823159205028e-11" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_left_wheel_tire.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="front_left_wheel_tire_collision">
+      <origin xyz="-9.060881579259217e-08 -1.2379956384478419e-08 0.0067999954112816854"
+        rpy="-1.5707943460843192 -1.2984253322138014e-05 -2.571823159205028e-11" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/front_left_wheel_tire.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="base_green_link">
+    <inertial>
+      <origin xyz="-0.13913679 0.03661348 0.03123525" rpy="0.0 -0.0 0.0" />
+      <mass value="0.0" />
+      <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0" />
+    </inertial>
+    <visual name="base_green_link_visual">
+      <origin xyz="-0.13913679 0.03661348 -0.029485164161682134"
+        rpy="3.141592653589793 -0.0 -4.61955986574744e-33" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/base_green_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="base_green_link_collision">
+      <origin xyz="-0.13913679 0.03661348 -0.029485164161682134"
+        rpy="3.141592653589793 -0.0 -4.61955986574744e-33" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/base_green_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="link3">
+    <inertial>
+      <origin xyz="-2.3639875297267743e-05 -0.09195621094779562 -0.026295032318387004"
+        rpy="0.0 -2.381120518315739e-50 0.0" />
+      <mass value="0.40322562518815125" />
+      <inertia ixx="0.0008314440783270797" iyy="0.00012967945845206348" izz="0.0007839817865429054"
+        ixy="-7.528083158836233e-07" iyz="1.3912748929935816e-06" ixz="-2.957961890971326e-08" />
+    </inertial>
+    <visual name="link3_visual">
+      <origin xyz="3.2398554239421173e-09 -0.06549999618094575 -0.026499997605061783"
+        rpy="-1.5707963267948963 -7.55716019276709e-16 3.141592653589793" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/link3.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="link3_collision">
+      <origin xyz="3.2398554239421173e-09 -0.06549999618094575 -0.026499997605061783"
+        rpy="-1.5707963267948963 -7.55716019276709e-16 3.141592653589793" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/link3.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="link4">
+    <inertial>
+      <origin xyz="6.226265562934152e-06 -0.030050540479459684 -0.026987061009714274"
+        rpy="0.0 -8.077935669463161e-28 0.0" />
+      <mass value="0.05455109870412938" />
+      <inertia ixx="5.4661118393795456e-05" iyy="3.647132392529831e-05" izz="2.9559555983077807e-05"
+        ixy="6.100322699600359e-10" iyz="-6.193289634840804e-09" ixz="2.8544193369428678e-08" />
+    </inertial>
+    <visual name="link4_visual">
+      <origin xyz="-0.0019964344419719773 -0.019300002691426243 -0.027000259990480804"
+        rpy="-1.5707963267948963 0.0001321162061067051 3.141592653589793" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/link4.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="link4_collision">
+      <origin xyz="-0.0019964344419719773 -0.019300002691426243 -0.027000259990480804"
+        rpy="-1.5707963267948963 0.0001321162061067051 3.141592653589793" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/link4.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="camera_connect_link">
+    <inertial>
+      <origin xyz="0.021254077529882173 0.00864995418185809 -0.0010000278787556027"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.021271472322718216" />
+      <inertia ixx="3.6076051163283298e-06" iyy="3.234970151034624e-06" izz="6.828393360724997e-06"
+        ixy="-7.826366542289677e-10" iyz="-3.908533180159593e-11" ixz="5.315554453214836e-12" />
+    </inertial>
+    <visual name="camera_connect_link_visual">
+      <origin xyz="0.017416935161538135 0.00865788278054115 -0.0009999882942112492"
+        rpy="3.114781384409849 2.1107573498320268e-08 -1.5709284429941672" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/camera_connect_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="camera_connect_link_collision">
+      <origin xyz="0.017416935161538135 0.00865788278054115 -0.0009999882942112492"
+        rpy="3.114781384409849 2.1107573498320268e-08 -1.5709284429941672" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/camera_connect_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="depth_cam_link">
+    <inertial>
+      <origin xyz="-4.376453911592249e-05 0.022050164920116654 -0.013820516719357273"
+        rpy="3.469446951953615e-18 -0.0 -5.169878828456424e-26" />
+      <mass value="0.03831714695484083" />
+      <inertia ixx="3.489400139092503e-05" iyy="5.559136251498198e-06" izz="3.4999940904367665e-05"
+        ixy="9.329010221241009e-08" iyz="-8.334217485109708e-07" ixz="1.3472219553897635e-08" />
+    </inertial>
+    <visual name="depth_cam_link_visual">
+      <origin xyz="-2.5096308837535554e-05 0.0225771511543509 -0.011943487721170954"
+        rpy="1.6069858139525746 1.5439626212388962 1.6116093591706409" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/depth_cam_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="depth_cam_link_collision">
+      <origin xyz="-2.5096308837535554e-05 0.0225771511543509 -0.011943487721170954"
+        rpy="1.6069858139525746 1.5439626212388962 1.6116093591706409" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/depth_cam_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="gripper_link">
+    <inertial>
+      <origin xyz="-7.292827158971171e-06 -3.72577187692881e-06 -0.026762691036252874"
+        rpy="0.0 -0.0 -2.5849394142282115e-26" />
+      <mass value="0.014983159142790694" />
+      <inertia ixx="5.321883738124411e-06" iyy="3.5090786940782544e-06" izz="1.8606875008082166e-06"
+        ixy="-2.395017729012792e-10" iyz="-2.2969915770588434e-10" ixz="-9.425517672899144e-10" />
+    </inertial>
+    <visual name="gripper_link_visual">
+      <origin xyz="-0.04450735545711261 2.1188053325294636e-06 -0.02698788504805073"
+        rpy="-3.1414532306055833 -0.00027230615396783966 3.1414605714425767" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/gripper_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="gripper_link_collision">
+      <origin xyz="-0.04450735545711261 2.1188053325294636e-06 -0.02698788504805073"
+        rpy="-3.1414532306055833 -0.00027230615396783966 3.1414605714425767" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/gripper_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="l_link">
+    <inertial>
+      <origin xyz="0.005823212792751633 -4.647469240631308e-05 -0.001499843202122615"
+        rpy="1.504632769052528e-36 -0.0 0.0" />
+      <mass value="0.006441330922134834" />
+      <inertia ixx="2.6206196713600564e-07" iyy="9.682273866065678e-07" izz="1.2206273470802276e-06"
+        ixy="5.913680580898462e-09" iyz="-3.3168749286653685e-11" ixz="-2.6577135457672704e-11" />
+    </inertial>
+    <visual name="l_link_visual">
+      <origin xyz="8.764590091914216e-08 3.913455760340412e-07 -0.003000003222326213"
+        rpy="-0.00012976423428022498 3.770299105147709e-05 -3.0716398056752694" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/l_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="l_link_collision">
+      <origin xyz="8.764590091914216e-08 3.913455760340412e-07 -0.003000003222326213"
+        rpy="-0.00012976423428022498 3.770299105147709e-05 -3.0716398056752694" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/l_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="r_link">
+    <inertial>
+      <origin xyz="0.005823139361551881 5.51690625071144e-05 -0.0014998215915691838"
+        rpy="1.504632769052528e-36 -0.0 0.0" />
+      <mass value="0.006441330921646253" />
+      <inertia ixx="2.6207067656026e-07" iyy="9.682186705418055e-07" izz="1.2206273402545244e-06"
+        ixy="-6.412400061128394e-09" iyz="-3.35216969547447e-11" ixz="-2.8204940797195776e-11" />
+    </inertial>
+    <visual name="r_link_visual">
+      <origin xyz="9.228587316556514e-10 4.58174483464191e-09 4.9388299050434624e-09"
+        rpy="3.1414635671271527 3.9961946854847626e-05 -3.0541865132883514" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/r_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="r_link_collision">
+      <origin xyz="9.228587316556514e-10 4.58174483464191e-09 4.9388299050434624e-09"
+        rpy="3.1414635671271527 3.9961946854847626e-05 -3.0541865132883514" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/r_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="imu_link">
+    <inertial>
+      <origin xyz="-0.036636169725406245 0.027122084070784157 -0.0007999963989490055"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.0706651825640878" />
+      <inertia ixx="2.3187629058349932e-05" iyy="4.751926526366714e-05" izz="7.067674384547184e-05"
+        ixy="-5.938154360427445e-08" iyz="2.710505431213761e-20" ixz="-5.421010862427522e-20" />
+    </inertial>
+    <visual name="imu_link_visual">
+      <origin xyz="-0.03656776111523513 0.027084453098396015 -0.0007999963989490055"
+        rpy="-2.5326962749260846e-16 4.544264624034629e-16 -1.5707963267948843" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/imu_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="imu_link_collision">
+      <origin xyz="-0.03656776111523513 0.027084453098396015 -0.0007999963989490055"
+        rpy="-2.5326962749260846e-16 4.544264624034629e-16 -1.5707963267948843" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/imu_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="lidar_link">
+    <inertial>
+      <origin xyz="-0.040099997002650094 -0.02389999910816517 -0.01766293669930608"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.8125861247126507" />
+      <inertia ixx="0.00035898806411377784" iyy="0.00038177105958932603" izz="0.0006814928196594051"
+        ixy="-8.893845946170154e-19" iyz="1.6432439176733427e-19" ixz="1.6653345369377348e-16" />
+    </inertial>
+    <visual name="lidar_link_visual">
+      <origin xyz="-0.04009999700263389 -0.02389999910816515 -0.010000003344751037"
+        rpy="-3.1415926535897927 -1.1102230246251559e-16 -2.7369110631344077e-48" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/lidar_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="lidar_link_collision">
+      <origin xyz="-0.04009999700263389 -0.02389999910816515 -0.010000003344751037"
+        rpy="-3.1415926535897927 -1.1102230246251559e-16 -2.7369110631344077e-48" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/lidar_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="link1">
+    <inertial>
+      <origin xyz="8.321890154777467e-05 -0.0007320172734558542 -0.022810794280474944"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.18032937433649726" />
+      <inertia ixx="5.965266583352925e-05" iyy="4.234496045006815e-05" izz="3.096622958876017e-05"
+        ixy="7.2629618775487065e-09" iyz="2.522285588627e-07" ixz="7.111865780312643e-09" />
+    </inertial>
+    <visual name="link1_visual">
+      <origin xyz="7.021282600971013e-05 -3.850713768437158e-05 -0.022641119611074283"
+        rpy="3.141592653589793 -3.9041590653403324e-17 -5.320466650806628e-33" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/link1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="link1_collision">
+      <origin xyz="7.021282600971013e-05 -3.850713768437158e-05 -0.022641119611074283"
+        rpy="3.141592653589793 -3.9041590653403324e-17 -5.320466650806628e-33" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/link1.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="link2">
+    <inertial>
+      <origin xyz="-0.00010131372461316346 0.08877956537073715 -0.026288206092973963"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.35796071594592527" />
+      <inertia ixx="0.0007874263578522556" iyy="0.0001248008262161543" izz="0.0007382784115526481"
+        ixy="-7.549106842428058e-07" iyz="-1.4946986434546222e-06" ixz="2.8628646994470616e-08" />
+    </inertial>
+    <visual name="link2_visual">
+      <origin xyz="-0.00012452108424558351 0.06561107829964229 -0.02649999500246093"
+        rpy="-1.5707963267948963 -7.556982329530722e-16 -3.903127820947816e-17" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/link2.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="link2_collision">
+      <origin xyz="-0.00012452108424558351 0.06561107829964229 -0.02649999500246093"
+        rpy="-1.5707963267948963 -7.556982329530722e-16 -3.903127820947816e-17" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/link2.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="link5">
+    <inertial>
+      <origin xyz="1.246814590412093e-06 -7.887616109085935e-06 -0.0035114952740888583"
+        rpy="0.0 -0.0 0.0" />
+      <mass value="0.0074151076754517525" />
+      <inertia ixx="1.787715858268986e-07" iyy="1.7879311013701063e-07" izz="3.378599907002452e-07"
+        ixy="3.0441760631608783e-12" iyz="-1.3322489447445252e-11" ixz="-3.1006013728740456e-12" />
+    </inertial>
+    <visual name="link5_visual">
+      <origin xyz="7.445338544798119e-07 3.825594504253821e-07 -0.002749977620862865"
+        rpy="-3.14145326279751 -0.0002723061152301914 -0.00013211620035717691" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/link5.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="link5_collision">
+      <origin xyz="7.445338544798119e-07 3.825594504253821e-07 -0.002749977620862865"
+        rpy="-3.14145326279751 -0.0002723061152301914 -0.00013211620035717691" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/link5.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="l_out_link">
+    <inertial>
+      <origin xyz="0.003501488340571193 0.006182083912995238 -0.023092103878510385"
+        rpy="3.009265538105056e-36 7.523163845262642e-37 0.0" />
+      <mass value="0.003128875366462588" />
+      <inertia ixx="1.0218206049354864e-06" iyy="9.802591481250854e-07" izz="6.711394467914968e-08"
+        ixy="-1.0238932038501571e-11" iyz="1.546995134577042e-07" ixz="4.887552154989559e-11" />
+    </inertial>
+    <visual name="l_out_link_visual">
+      <origin xyz="0.0035014119805999713 0.005252460136414437 -0.025221049862246474"
+        rpy="3.1242790432357177 -2.8540804092148847e-05 -0.00013208215069074423" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/l_out_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="l_out_link_collision">
+      <origin xyz="0.0035014119805999713 0.005252460136414437 -0.025221049862246474"
+        rpy="3.1242790432357177 -2.8540804092148847e-05 -0.00013208215069074423" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/l_out_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="r_out_link">
+    <inertial>
+      <origin xyz="0.0034997688420429986 0.006564887199378301 0.02293184038237442"
+        rpy="1.504632769052528e-36 -0.0 0.0" />
+      <mass value="0.0031234363328272266" />
+      <inertia ixx="1.016818970120186e-06" iyy="9.699954105920304e-07" izz="7.233162364284652e-08"
+        ixy="1.7106526203131604e-12" iyz="-1.6903448920665788e-07" ixz="-3.445094226171494e-12" />
+    </inertial>
+    <visual name="r_out_link_visual">
+      <origin xyz="0.003499961904885307 0.005685735678468342 0.025127120542756034"
+        rpy="-0.0001396821658643108 -2.8540804092148827e-05 -3.1414605714391026" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/r_out_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision name="r_out_link_collision">
+      <origin xyz="0.003499961904885307 0.005685735678468342 0.025127120542756034"
+        rpy="-0.0001396821658643108 -2.8540804092148827e-05 -3.1414605714391026" />
+      <geometry>
+        <mesh filename="file://$(find jetrover_description)/meshes/r_out_link.stl"
+          scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="Rigid4" type="fixed">
+    <origin xyz="0.13913679 0.03661348 -0.022764750000000014"
+      rpy="3.141592653589793 -0.0 -4.61955986574744e-33" />
+    <parent link="base_link" />
+    <child link="base_green_link" />
+  </joint>
+  <joint name="Rigid5" type="fixed">
+    <origin xyz="-0.013765029999999996 -0.025349810000000007 -0.05897430000000001"
+      rpy="0.0 -0.0 0.0" />
+    <parent link="base_green_link" />
+    <child link="back_shell_green_link" />
+  </joint>
+  <joint name="Rigid6" type="fixed">
+    <origin xyz="-0.16637176 0.005642390000000006 -0.03144998999999998"
+      rpy="7.006492321624085e-46 -0.0 0.0" />
+    <parent link="back_shell_green_link" />
+    <child link="back_shell_black_link" />
+  </joint>
+  <joint name="Rigid8" type="fixed">
+    <origin xyz="2.396885072641908e-09 7.061907680849799e-10 -0.025600000002175653"
+      rpy="-1.9807105773622926e-06 1.2984253322181836e-05 3.141592653589793" />
+    <parent link="front_left_wheel_link" />
+    <child link="front_left_wheel_tire" />
+  </joint>
+  <joint name="front_left_steering_joint" type="revolute">
+    <origin xyz="0.11123217 0.06368303 -0.022764750000000014"
+      rpy="3.141592653589793 -0.0 -4.61955986574744e-33" />
+    <parent link="base_link" />
+    <child link="front_left_sterring_link" />
+    <axis xyz="0.0 0.0 -1.0" />
+    <limit lower="-0.349066" upper="0.349066" effort="1000000" velocity="1000000" />
+  </joint>
+  <joint name="Rigid9" type="fixed">
+    <origin xyz="0.0 0.0 -0.025600000000000005" rpy="3.141592653589793 -0.0 0.0" />
+    <parent link="front_right_wheel_link" />
+    <child link="front_right_wheel_tire" />
+  </joint>
+  <joint name="front_right_steering_joint" type="revolute">
+    <origin xyz="0.11123217 -0.06368303 -0.022764750000000014"
+      rpy="3.141592653589793 -0.0 -4.61955986574744e-33" />
+    <parent link="base_link" />
+    <child link="front_right_steering_link" />
+    <axis xyz="0.0 0.0 -1.0" />
+    <limit lower="-0.349066" upper="0.349066" effort="1000000" velocity="1000000" />
+  </joint>
+  <joint name="Rigid13" type="fixed">
+    <origin xyz="0.0 0.0 0.025600000000000005" rpy="0.0 -0.0 0.0" />
+    <parent link="rear_left_wheel_link" />
+    <child link="rear_left_wheel_tire" />
+  </joint>
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <origin xyz="-0.10209827 0.0919244 0.00023524999999998463"
+      rpy="-1.5707963267948966 -0.0 -4.61955986574744e-33" />
+    <parent link="base_link" />
+    <child link="rear_left_wheel_link" />
+    <axis xyz="0.0 0.0 1.0" />
+  </joint>
+  <joint name="rear_right_wheel_joint" type="continuous">
+    <origin xyz="-0.10209827 -0.09192406 0.00023524999999998463"
+      rpy="-1.5707963267948966 -0.0 -4.61955986574744e-33" />
+    <parent link="base_link" />
+    <child link="rear_right_wheel_link" />
+    <axis xyz="0.0 0.0 1.0" />
+  </joint>
+  <joint name="Rigid16" type="fixed">
+    <origin xyz="0.0 0.0 0.025600000000000005" rpy="0.0 -0.0 0.0" />
+    <parent link="rear_right_wheel_link" />
+    <child link="rear_right_wheel_tire" />
+  </joint>
+  <joint name="front_right_wheel_joint" type="continuous">
+    <origin xyz="-6.069000000000102e-05 0.02824103 -0.021359399999999997"
+      rpy="1.5707963267948966 -0.0 0.0" />
+    <parent link="front_right_steering_link" />
+    <child link="front_right_wheel_link" />
+    <axis xyz="0.0 0.0 1.0" />
+  </joint>
+    <joint name="front_left_wheel_joint" type="continuous">
+    <origin xyz="-6.069000000000102e-05 -0.0282411 -0.021359399999999997"
+      rpy="1.5707943460843194 2.5718047893657596e-11 -3.1415796693364713" />
+    <parent link="front_left_sterring_link" />
+    <child link="front_left_wheel_link" />
+    <axis xyz="1.5746677061197616e-08 1.928942263507897e-08 -1.0000000000864997" />
+  </joint>
+  <joint name="joint1" type="revolute">
+    <origin xyz="-0.08897041000000001 0.061963290000000004 -0.10539556000000001"
+      rpy="7.006492321624085e-46 -0.0 0.0" />
+    <parent link="back_shell_green_link" />
+    <child link="link1" />
+    <axis xyz="0.0 7.006492321624085e-46 1.0" />
+    <limit lower="-2.090032" upper="2.090032" effort="1000000" velocity="1000000" />
+  </joint>
+  <joint name="joint3" type="revolute">
+    <origin xyz="-0.0002457200000000004 0.12952583999999998 0.00011503000000000263"
+      rpy="-1.342495051493883e-23 -0.00013211620610765516 -3.141592653589793" />
+    <parent link="link2" />
+    <child link="link3" />
+    <axis xyz="1.1620687532352286e-07 -1.3424948992616156e-23 1.0000000087119931" />
+    <limit lower="-2.090032" upper="2.090032" effort="1000000" velocity="1000000" />
+  </joint>
+  <joint name="joint4" type="revolute">
+    <origin xyz="0.00011545587873893482 -0.12940727000000002 0.0004986347507591261"
+      rpy="1.0018384518759942e-23 0.00013211621185730518 5.760220512052884e-35" />
+    <parent link="link3" />
+    <child link="link4" />
+    <axis xyz="-0.00013200000574965006 -3.406564473856221e-24 0.9999999999999994" />
+    <limit lower="-2.090032" upper="2.090032" effort="1000000" velocity="1000000" />
+  </joint>
+  <joint name="joint2" type="revolute">
+    <origin xyz="1.9650000000002165e-05 0.026385839999999997 -0.03548012999999998"
+      rpy="-1.5707963267948966 -2.3237962536515462e-94 -3.316632841342923e-49" />
+    <parent link="link1" />
+    <child link="link2" />
+    <axis xyz="-3.316632841342923e-49 -1.4051584874249273e-30 1.0" />
+    <limit lower="-2.090032" upper="2.090032" effort="1000000" velocity="1000000" />
+  </joint>
+  <joint name="camera_connect_joint" type="fixed">
+    <origin xyz="0.018953300000105495 -0.05470626000000003 -0.01834907999989102"
+      rpy="-1.5707964619915789 -2.308828687479906e-11 -0.0001282475013835615" />
+    <parent link="link4" />
+    <child link="camera_connect_link" />
+  </joint>
+  <joint name="depth_cam_joint" type="fixed">
+    <origin xyz="0.031638136755741925 -0.01359822972905761 -0.0020000043429067205"
+      rpy="-0.02681121027115455 -0.00012825930108338756 3.164400627824612e-10" />
+    <parent link="camera_connect_link" />
+    <child link="depth_cam_link" />
+  </joint>
+  <joint name="joint5" type="revolute">
+    <origin xyz="-0.00024036999984703656 -0.053884690000000006 -0.026603920000001377"
+      rpy="1.5707963267948966 5.749650050772965e-12 3.141592653589793" />
+    <parent link="link4" />
+    <child link="link5" />
+    <axis xyz="0.0 1.5706317504930268e-24 1.0" />
+    <limit lower="-2.090032" upper="2.090032" effort="1000000" velocity="1000000" />
+  </joint>
+  <joint name="gripper_joint" type="fixed">
+    <origin xyz="-4.999999999988347e-07 -1.950000000000007e-06 -0.005499549999999971"
+      rpy="-2.913787123455721e-07 -0.00024376531351608322 -3.141592653518765" />
+    <parent link="link5" />
+    <child link="gripper_link" />
+  </joint>
+  <joint name="l_joint" type="continuous">
+    <origin xyz="0.0014944878054658029 0.013996037867807162 -0.02700236102839945"
+      rpy="-0.0011953241211403102 1.5705525613072344 3.1403973294331387" />
+    <parent link="gripper_link" />
+    <child link="l_link" />
+    <axis xyz="-2.8999999999999997e-05 -0.00013199999999999998 1.0" />
+  </joint>
+  <joint name="r_joint" type="continuous">
+    <origin xyz="0.0014907987567090153 -0.01400395213333094 -0.026998458287622144"
+      rpy="-0.0011953241211403102 1.5705525613072344 3.1403973294331387" />
+    <parent link="gripper_link" />
+    <child link="r_link" />
+    <axis xyz="-2.8999999999999997e-05 -0.00013199999999999998 1.0" />
+  </joint>
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="-0.07405545000000001 0.07403322 -0.029449989999999992"
+      rpy="-3.141592653589793 -0.0 0.0" />
+    <parent link="back_shell_green_link" />
+    <child link="imu_link" />
+  </joint>
+  <joint name="lidar_base_joint" type="fixed">
+    <origin xyz="0.01562823999999999 0.08596329000000001 -0.03144998999999998"
+      rpy="7.006492321624085e-46 -0.0 0.0" />
+    <parent link="back_shell_green_link" />
+    <child link="lidar_link" />
+  </joint>
+  <joint name="l_gripper_joint" type="fixed">
+    <origin xyz="0.029998859999999964 -0.0002617999999999987 8.199999999991548e-07"
+      rpy="3.811648262644352e-21 -1.5707963267948966 0" />
+    <parent link="l_link" />
+    <child link="l_out_link" />
+  </joint>
+  <joint name="r_gripper_joint" type="fixed">
+    <origin xyz="0.029998859999999964 0.0002617999999999987 9.000000000014552e-07"
+      rpy="-3.141592653589793 -1.5707963267948966 0" />
+    <parent link="r_link" />
+    <child link="r_out_link" />
+  </joint>
+</robot>

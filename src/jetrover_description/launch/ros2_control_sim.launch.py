@@ -53,7 +53,8 @@ def generate_launch_description():
     use_sim_time = {'use_sim_time': use_sim_time_arg}
 
     # Parse URDF via xacro
-    robot_description_file = os.path.join(pkg_jetrover_description, 'urdf/acker', 'assembly_chasis.xacro')
+    # robot_description_file = os.path.join(pkg_jetrover_description, 'urdf', 'jetrover_bot.xacro')
+    robot_description_file = os.path.join(pkg_jetrover_description, 'urdf', 'assembly_simulation.xacro')
     robot_description = {"robot_description": xacro.process_file(robot_description_file).toxml()}
 
     ros_gz_bridge_config = os.path.join(pkg_jetrover_description, 'config', 'ros_gz_bridge_gazebo.yaml')

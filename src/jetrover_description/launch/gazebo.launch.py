@@ -12,7 +12,7 @@ def generate_launch_description():
     pkg_ros_gz_rbot = get_package_share_directory('jetrover_description')
 
 
-    robot_description_file = os.path.join(pkg_ros_gz_rbot, 'urdf/acker', 'assembly_chasis.xacro')
+    robot_description_file = os.path.join(pkg_ros_gz_rbot, 'urdf', 'assembly_simulation.xacro')
     ros_gz_bridge_config = os.path.join(pkg_ros_gz_rbot, 'config', 'ros_gz_bridge_gazebo.yaml')
     
     robot_description_config = xacro.process_file(robot_description_file)

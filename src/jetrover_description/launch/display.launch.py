@@ -24,7 +24,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
     pkg_jetrover_description = get_package_share_directory(PACKAGE_JETROVER_DESCRIPTION)
-    urdf_file = os.path.join(pkg_jetrover_description, 'urdf/acker', 'assembly_chasis.xacro')  # 机器人 URDF 文件地址
+    urdf_file = os.path.join(pkg_jetrover_description, 'urdf', 'assembly_simulation.xacro')  # 机器人 URDF 文件地址
     rviz_config_file = os.path.join(pkg_jetrover_description, 'config', 'display.rviz')  # Rviz 窗口配置文件
 
     robot_description_processed = xacro.process_file(urdf_file)
