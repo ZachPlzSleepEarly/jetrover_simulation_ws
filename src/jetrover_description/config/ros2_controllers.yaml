@@ -12,6 +12,9 @@ controller_manager:
     arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
+    eef_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
 joint_state_broadcaster:
   ros__parameters: {}
 
@@ -56,6 +59,17 @@ arm_controller:
       - joint3
       - joint4
       - joint5
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+
+eef_controller:
+  ros__parameters:
+    joints:
+      - l_joint
+      - r_joint
     command_interfaces:
       - position
     state_interfaces:

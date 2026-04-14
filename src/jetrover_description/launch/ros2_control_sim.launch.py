@@ -22,6 +22,7 @@ PKG_ROS_GZ_SIM: Final = 'ros_gz_sim'
 JOINT_STATE_BROADCASTER_CONTROLLER: Final = 'joint_state_broadcaster'
 ACKERMANN_LIKE_CONTROLLER: Final = 'ackermann_like_controller'
 ARM_CONTROLLER: Final = 'arm_controller'
+EEF_CONTROLLER: Final = 'eef_controller'
 
 
 def generate_launch_description():
@@ -150,6 +151,15 @@ def generate_launch_description():
             '--param-file', ros2_control_config_file,
         ],
     )
+    eef_controller_spawner_node = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=[
+            EEF_CONTROLLER,
+            '-c', '/controller_manager',  # [-c CONTROLLER_MANAGER]
+            '--param-file', ros2_control_config_file,
+        ]
+    )
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
@@ -165,17 +175,24 @@ def generate_launch_description():
             on_exit=[ackermann_like_controller_spawner_node],
         )
     )
-    # 2) ackermann controller spawner 结束后，再启动 arm controller spawner ndoe
+    # 2) ackermann controller spawner 结束后，再启动 arm controller spawner node
     delay_arm_controller_spawner_node_after_ackermann_controller_spawner_node = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=ackermann_like_controller_spawner_node,
             on_exit=[arm_controller_spawner_node],
         )
     )
-    # 3) arm controller spawner ndoe 结束后，再启动Rviz
-    delay_rviz_after_ackermann_controller_spawner_node = RegisterEventHandler(
+    # 3) arm controller spawner ndoe 结束后，再启动 eef controller spawner node
+    delay_eef_controller_spawner_node_after_arm_controller_spawner_node = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=arm_controller_spawner_node,
+            on_exit=[eef_controller_spawner_node],
+        )
+    )
+    # 4) eef controller spawner node 结束后，再启动Rviz
+    delay_rviz_after_ackermann_controller_spawner_node = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=eef_controller_spawner_node,
             on_exit=[rviz_node],
         )
     )
@@ -198,6 +215,7 @@ def generate_launch_description():
         joint_state_broadcaster_spanwer_node,
         delay_ackermann_after_joint_state_broadcaster_spawner_node,
         delay_arm_controller_spawner_node_after_ackermann_controller_spawner_node,
+        delay_eef_controller_spawner_node_after_arm_controller_spawner_node,
         delay_rviz_after_ackermann_controller_spawner_node,
 
         rqt_robot_steering
