@@ -21,6 +21,7 @@ PKG_JETROVER_DESCRIPTION: Final = 'jetrover_description'
 PKG_ROS_GZ_SIM: Final = 'ros_gz_sim'
 JOINT_STATE_BROADCASTER_CONTROLLER: Final = 'joint_state_broadcaster'
 ACKERMANN_LIKE_CONTROLLER: Final = 'ackermann_like_controller'
+ARM_CONTROLLER: Final = 'arm_controller'
 
 
 def generate_launch_description():
@@ -59,7 +60,7 @@ def generate_launch_description():
 
     ros_gz_bridge_config = os.path.join(pkg_jetrover_description, 'config', 'ros_gz_bridge_gazebo.yaml')
 
-    ros2_control_config_file = os.path.join(pkg_jetrover_description, 'config', 'ackermann_like_controller.yaml')
+    ros2_control_config_file = os.path.join(pkg_jetrover_description, 'config', 'ros2_controllers.yaml')
     rviz_config_file = os.path.join(pkg_jetrover_description, 'config', 'robot_view.rviz')
 
     # Start gz sim
@@ -140,6 +141,15 @@ def generate_launch_description():
             '--controller-ros-args', '-r /ackermann_like_controller/tf_odometry:=/tf',
         ],
     )
+    arm_controller_spawner_node = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=[
+            ARM_CONTROLLER,  # controller_names
+            '-c', '/controller_manager',  # [-c CONTROLLER_MANAGER]
+            '--param-file', ros2_control_config_file,
+        ],
+    )
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
@@ -155,10 +165,17 @@ def generate_launch_description():
             on_exit=[ackermann_like_controller_spawner_node],
         )
     )
-    # 2) ackermann controller spawner 结束后，再启动 RViz
-    delay_rviz_after_ackermann_controller_spawner_node = RegisterEventHandler(
+    # 2) ackermann controller spawner 结束后，再启动 arm controller spawner ndoe
+    delay_arm_controller_spawner_node_after_ackermann_controller_spawner_node = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=ackermann_like_controller_spawner_node,
+            on_exit=[arm_controller_spawner_node],
+        )
+    )
+    # 3) arm controller spawner ndoe 结束后，再启动Rviz
+    delay_rviz_after_ackermann_controller_spawner_node = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=arm_controller_spawner_node,
             on_exit=[rviz_node],
         )
     )
@@ -180,6 +197,7 @@ def generate_launch_description():
         robot_state_publisher,
         joint_state_broadcaster_spanwer_node,
         delay_ackermann_after_joint_state_broadcaster_spawner_node,
+        delay_arm_controller_spawner_node_after_ackermann_controller_spawner_node,
         delay_rviz_after_ackermann_controller_spawner_node,
 
         rqt_robot_steering

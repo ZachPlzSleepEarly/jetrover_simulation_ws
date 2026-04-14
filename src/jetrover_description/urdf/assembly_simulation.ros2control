@@ -5,11 +5,12 @@
     <gazebo>
         <plugin filename="libgz_ros2_control-system.so"
             name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-            <parameters>$(find jetrover_description)/config/ackermann_like_controller.yaml</parameters>
+            <parameters>$(find jetrover_description)/config/ros2_controllers.yaml</parameters>
         </plugin>
     </gazebo>
 
     <!-- 对 joint 声明需要暴露的 command/state interfaces，以及它们属于哪个 hardware component -->
+    <!-- Ackermann -->
     <ros2_control name="GazeboSystem" type="system">
         <hardware>
             <plugin>gz_ros2_control/GazeboSimSystem</plugin>
@@ -42,6 +43,49 @@
         <joint name="front_left_wheel_joint">
             <state_interface name="velocity" />
             <state_interface name="position" />
+        </joint>
+    </ros2_control>
+
+    <!-- Arm -->
+    <ros2_control name="ArmSystem" type="system">
+        <!-- ros2_control hardware interface used by Gazebo simulation -->
+        <hardware>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+        <joint name="joint1">
+            <command_interface name="position" />
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity" />
+        </joint>
+        <joint name="joint2">
+            <command_interface name="position" />
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity" />
+        </joint>
+        <joint name="joint3">
+            <command_interface name="position" />
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity" />
+        </joint>
+        <joint name="joint4">
+            <command_interface name="position" />
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity" />
+        </joint>
+        <joint name="joint5">
+            <command_interface name="position" />
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity" />
         </joint>
     </ros2_control>
 

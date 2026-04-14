@@ -19,7 +19,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/base_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="base_link_collision">
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
@@ -44,7 +44,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/front_left_sterring_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="front_left_sterring_link_collision">
       <origin xyz="-0.11123217 0.06368303 -0.02126492445928225"
@@ -70,7 +70,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/rear_right_wheel_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="rear_right_wheel_link_collision">
       <origin xyz="-4.8838706945275594e-09 -4.295349107508173e-09 0.006800000845091283"
@@ -96,7 +96,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/rear_right_wheel_tire.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="rear_right_wheel_tire_collision">
       <origin xyz="-4.8838706945275594e-09 -4.295349107508173e-09 -0.018799999154908723"
@@ -122,7 +122,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/back_shell_green_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="back_shell_green_link_collision">
       <origin xyz="-0.1253717600000026 0.06196329000000034 -0.05344999394079745"
@@ -147,7 +147,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/back_shell_black_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="back_shell_black_link_collision">
       <origin xyz="-0.05859865489088415 0.0563208999999996 -0.07799512270781968"
@@ -173,7 +173,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/front_right_steering_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="front_right_steering_link_collision">
       <origin xyz="-0.11123217 -0.06368303 -0.02126492467044681"
@@ -199,7 +199,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/rear_left_wheel_tire.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="rear_left_wheel_tire_collision">
       <origin xyz="-4.8838706945275594e-09 4.295349107508173e-09 -0.006800000617187507"
@@ -225,7 +225,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/rear_left_wheel_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="rear_left_wheel_link_collision">
       <origin xyz="-4.8838706945275594e-09 4.295349107508173e-09 0.018799999382812498"
@@ -251,7 +251,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/front_right_wheel_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="front_right_wheel_link_collision">
       <origin xyz="-4.712778238769033e-09 -5.938493252699573e-10 -0.006799997006835934"
@@ -277,7 +277,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/front_right_wheel_tire.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="front_right_wheel_tire_collision">
       <origin xyz="-4.712778238769033e-09 5.938493252699573e-10 -0.01880000299316407"
@@ -303,7 +303,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/front_left_wheel_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="front_left_wheel_link_collision">
       <origin xyz="4.712837835540995e-09 -3.826756778124718e-10 -0.018800004590279508"
@@ -329,7 +329,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/front_left_wheel_tire.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="front_left_wheel_tire_collision">
       <origin xyz="-9.060881579259217e-08 -1.2379956384478419e-08 0.0067999954112816854"
@@ -353,7 +353,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/base_green_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="base_green_link_collision">
       <origin xyz="-0.13913679 0.03661348 -0.029485164161682134"
@@ -379,7 +379,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/link3.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="link3_collision">
       <origin xyz="3.2398554239421173e-09 -0.06549999618094575 -0.026499997605061783"
@@ -405,7 +405,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/link4.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="link4_collision">
       <origin xyz="-0.0019964344419719773 -0.019300002691426243 -0.027000259990480804"
@@ -431,7 +431,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/camera_connect_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="camera_connect_link_collision">
       <origin xyz="0.017416935161538135 0.00865788278054115 -0.0009999882942112492"
@@ -457,7 +457,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/depth_cam_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="depth_cam_link_collision">
       <origin xyz="-2.5096308837535554e-05 0.0225771511543509 -0.011943487721170954"
@@ -483,7 +483,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/gripper_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="gripper_link_collision">
       <origin xyz="-0.04450735545711261 2.1188053325294636e-06 -0.02698788504805073"
@@ -509,7 +509,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/l_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="l_link_collision">
       <origin xyz="8.764590091914216e-08 3.913455760340412e-07 -0.003000003222326213"
@@ -535,7 +535,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/r_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="r_link_collision">
       <origin xyz="9.228587316556514e-10 4.58174483464191e-09 4.9388299050434624e-09"
@@ -561,7 +561,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/imu_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="imu_link_collision">
       <origin xyz="-0.03656776111523513 0.027084453098396015 -0.0007999963989490055"
@@ -587,7 +587,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/lidar_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="lidar_link_collision">
       <origin xyz="-0.04009999700263389 -0.02389999910816515 -0.010000003344751037"
@@ -613,7 +613,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/link1.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="link1_collision">
       <origin xyz="7.021282600971013e-05 -3.850713768437158e-05 -0.022641119611074283"
@@ -639,7 +639,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/link2.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="link2_collision">
       <origin xyz="-0.00012452108424558351 0.06561107829964229 -0.02649999500246093"
@@ -665,7 +665,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/link5.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="link5_collision">
       <origin xyz="7.445338544798119e-07 3.825594504253821e-07 -0.002749977620862865"
@@ -691,7 +691,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/l_out_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="l_out_link_collision">
       <origin xyz="0.0035014119805999713 0.005252460136414437 -0.025221049862246474"
@@ -717,7 +717,7 @@
         <mesh filename="file://$(find jetrover_description)/meshes/r_out_link.stl"
           scale="0.001 0.001 0.001" />
       </geometry>
-      <material name="silver"/>
+      <material name="silver" />
     </visual>
     <collision name="r_out_link_collision">
       <origin xyz="0.003499961904885307 0.005685735678468342 0.025127120542756034"
@@ -804,7 +804,7 @@
     <child link="front_right_wheel_link" />
     <axis xyz="0.0 0.0 1.0" />
   </joint>
-    <joint name="front_left_wheel_joint" type="continuous">
+  <joint name="front_left_wheel_joint" type="continuous">
     <origin xyz="-6.069000000000102e-05 -0.0282411 -0.021359399999999997"
       rpy="1.5707943460843194 2.5718047893657596e-11 -3.1415796693364713" />
     <parent link="front_left_sterring_link" />
