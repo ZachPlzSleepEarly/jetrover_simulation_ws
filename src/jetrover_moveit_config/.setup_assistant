@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: jetrover_description
+    relative_path: urdf/assembly_simulation.xacro
+  srdf:
+    relative_path: config/assembly_simulation.srdf
+  package_settings:
+    author_name: JetroverRebuild
+    author_email: jetrover_sim@random.com
+    generated_timestamp: 1776230219
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

@@ -13,7 +13,7 @@ def generate_launch_description():
 
 
     robot_description_file = os.path.join(pkg_ros_gz_rbot, 'urdf', 'assembly_simulation.xacro')
-    ros_gz_bridge_config = os.path.join(pkg_ros_gz_rbot, 'config', 'ros2_controllers.yamll')
+    ros_gz_bridge_config = os.path.join(pkg_ros_gz_rbot, 'config', 'ros_gz_bridge_gazebo.yaml')
     
     robot_description_config = xacro.process_file(robot_description_file)
     robot_description = {'robot_description': robot_description_config.toxml()}
