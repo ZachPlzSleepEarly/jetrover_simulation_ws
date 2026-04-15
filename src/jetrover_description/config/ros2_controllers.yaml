@@ -65,7 +65,7 @@ arm_controller:
       - position
       - velocity
 
-eef_controller:
+eef_controller: 
   ros__parameters:
     joints:
       - l_joint

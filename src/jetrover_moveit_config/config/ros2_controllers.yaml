@@ -7,7 +7,7 @@ controller_manager:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
-    gripper_controller:
+    eef_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
 
@@ -28,7 +28,7 @@ arm_controller:
       - position
       - velocity
     allow_nonzero_velocity_at_trajectory_end: true
-gripper_controller:
+eef_controller:
   ros__parameters:
     joints:
       - l_joint
