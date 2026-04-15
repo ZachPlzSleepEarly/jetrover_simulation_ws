@@ -7,7 +7,7 @@ moveit_setup_assistant_config:
   package_settings:
     author_name: JetroverRebuild
     author_email: jetrover_sim@random.com
-    generated_timestamp: 1776227109
+    generated_timestamp: 1776216741
   control_xacro:
     command:
       - position
