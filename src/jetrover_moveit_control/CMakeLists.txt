@@ -12,10 +12,14 @@ find_package(rclcpp REQUIRED)
 
 add_executable(joint_space_planning src/joint_space_planning.cpp)
 ament_target_dependencies(joint_space_planning rclcpp std_msgs moveit_ros_planning_interface)
+add_executable(planning_with_obstacles src/planning_with_obstacles.cpp)
+ament_target_dependencies(planning_with_obstacles rclcpp std_msgs moveit_ros_planning_interface)
+
 
 install(
   TARGETS
     joint_space_planning
+    planning_with_obstacles
   RUNTIME DESTINATION
     lib/${PROJECT_NAME}
 )
