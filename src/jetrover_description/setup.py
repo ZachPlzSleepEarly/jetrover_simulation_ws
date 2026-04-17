@@ -18,6 +18,7 @@ setup(
         (os.path.join('share', PACKAGE_NAME, 'rviz'), glob(os.path.join('rviz', '*.*'))),
         (os.path.join('share', PACKAGE_NAME, 'meshes'), glob(os.path.join('meshes', '*.*'))),
         (os.path.join('share', PACKAGE_NAME, 'scripts'), glob(os.path.join('scripts', '*.*'))),
+        (os.path.join('share', PACKAGE_NAME, 'worlds'), glob(os.path.join('worlds', '*.*'))),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

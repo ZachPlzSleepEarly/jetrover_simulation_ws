@@ -60,15 +60,15 @@ def generate_launch_description():
     robot_description = {"robot_description": xacro.process_file(robot_description_file).toxml()}
 
     ros_gz_bridge_config = os.path.join(pkg_jetrover_description, 'config', 'ros_gz_bridge_gazebo.yaml')
-
     ros2_control_config_file = os.path.join(pkg_jetrover_description, 'config', 'ros2_controllers.yaml')
     rviz_config_file = os.path.join(pkg_jetrover_description, 'config', 'robot_view.rviz')
-
+    gz_world_file = os.path.join(pkg_jetrover_description, 'worlds', 'gz_world.sdf')
+    
     # Start gz sim
     gz_sim_ndoe = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
         launch_arguments={
-            'gz_args': '-r empty.sdf'
+            'gz_args': f'-r {gz_world_file}'
         }.items(),
     )
 

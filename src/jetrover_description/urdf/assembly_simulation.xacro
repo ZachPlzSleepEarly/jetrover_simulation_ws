@@ -468,6 +468,7 @@
       </geometry>
     </collision>
   </link>
+  <link name="virtual_depth_cam_frame" />
   <link name="gripper_link">
     <inertial>
       <origin xyz="-7.292827158971171e-06 -3.72577187692881e-06 -0.026762691036252874"
@@ -854,6 +855,11 @@
       rpy="-0.02681121027115455 -0.00012825930108338756 3.164400627824612e-10" />
     <parent link="camera_connect_link" />
     <child link="depth_cam_link" />
+  </joint>
+  <joint name="virtual_depth_cam_frame_joint" type="fixed">
+    <parent link="depth_cam_link" />
+    <child link="virtual_depth_cam_frame" />
+    <origin xyz="0 0.022 -0.03" rpy="0 1.57079632679 0" />
   </joint>
   <joint name="joint5" type="revolute">
     <origin xyz="-0.00024036999984703656 -0.053884690000000006 -0.026603920000001377"
