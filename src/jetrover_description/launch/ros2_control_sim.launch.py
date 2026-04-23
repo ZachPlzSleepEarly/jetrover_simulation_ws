@@ -55,14 +55,14 @@ def generate_launch_description():
     use_sim_time = {'use_sim_time': use_sim_time_arg}
 
     # Parse URDF via xacro
-    # robot_description_file = os.path.join(pkg_jetrover_description, 'urdf', 'jetrover_bot.xacro')
     robot_description_file = os.path.join(pkg_jetrover_description, 'urdf', 'assembly_simulation.xacro')
     robot_description = {"robot_description": xacro.process_file(robot_description_file).toxml()}
 
     ros_gz_bridge_config = os.path.join(pkg_jetrover_description, 'config', 'ros_gz_bridge_gazebo.yaml')
     ros2_control_config_file = os.path.join(pkg_jetrover_description, 'config', 'ros2_controllers.yaml')
     rviz_config_file = os.path.join(pkg_jetrover_description, 'config', 'robot_view.rviz')
-    gz_world_file = os.path.join(pkg_jetrover_description, 'worlds', 'gz_world.sdf')
+    # You can also use gz_world.sdf or husarion_office.sdf
+    gz_world_file = os.path.join(pkg_jetrover_description, 'worlds', 'husarion_office.sdf')
     
     # Start gz sim
     gz_sim_ndoe = IncludeLaunchDescription(

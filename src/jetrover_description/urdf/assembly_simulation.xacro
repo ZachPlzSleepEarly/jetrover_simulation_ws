@@ -788,10 +788,10 @@
   </joint>
   <joint name="rear_right_wheel_joint" type="continuous">
     <origin xyz="-0.10209827 -0.09192406 0.00023524999999998463"
-      rpy="-1.5707963267948966 -0.0 -4.61955986574744e-33" />
+      rpy="1.5707963267948966 -0.0 -4.61955986574744e-33" />
     <parent link="base_link" />
     <child link="rear_right_wheel_link" />
-    <axis xyz="0.0 0.0 1.0" />
+    <axis xyz="0.0 0.0 -1.0" />
   </joint>
   <joint name="Rigid16" type="fixed">
     <origin xyz="0.0 0.0 0.025600000000000005" rpy="0.0 -0.0 0.0" />
