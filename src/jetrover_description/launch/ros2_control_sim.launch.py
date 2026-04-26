@@ -19,6 +19,7 @@ import xacro
 
 PKG_JETROVER_DESCRIPTION: Final = 'jetrover_description'
 PKG_ROS_GZ_SIM: Final = 'ros_gz_sim'
+PKG_HUSARION_GZ_WORLDS = 'husarion_gz_worlds'
 JOINT_STATE_BROADCASTER_CONTROLLER: Final = 'joint_state_broadcaster'
 ACKERMANN_LIKE_CONTROLLER: Final = 'ackermann_like_controller'
 ARM_CONTROLLER: Final = 'arm_controller'
@@ -50,6 +51,7 @@ def generate_launch_description():
     # Package Directories
     pkg_jetrover_description = get_package_share_directory(PKG_JETROVER_DESCRIPTION)
     pkg_ros_gz_sim = get_package_share_directory(PKG_ROS_GZ_SIM)
+    pkg_husarion_gz_worlds = get_package_share_directory(PKG_HUSARION_GZ_WORLDS)
 
     # Declare the use_sim_time argument
     use_sim_time = {'use_sim_time': use_sim_time_arg}
@@ -61,8 +63,8 @@ def generate_launch_description():
     ros_gz_bridge_config = os.path.join(pkg_jetrover_description, 'config', 'ros_gz_bridge_gazebo.yaml')
     ros2_control_config_file = os.path.join(pkg_jetrover_description, 'config', 'ros2_controllers.yaml')
     rviz_config_file = os.path.join(pkg_jetrover_description, 'config', 'robot_view.rviz')
-    # You can also use gz_world.sdf or husarion_office.sdf
-    gz_world_file = os.path.join(pkg_jetrover_description, 'worlds', 'husarion_office.sdf')
+    # You can also use gz_world.sdf
+    gz_world_file = os.path.join(pkg_husarion_gz_worlds, 'worlds', 'husarion_office.sdf')
     
     # Start gz sim
     gz_sim_ndoe = IncludeLaunchDescription(
