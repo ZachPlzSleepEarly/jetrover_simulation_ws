@@ -1,0 +1,10 @@
+<library path="ackermann_motion_model">
+    <class
+        name="jetrover_nav2_bringup::AckermannMotionModel"
+        type="jetrover_nav2_bringup::AckermannMotionModel"
+        base_class_type="nav2_amcl::MotionModel">
+        <description>
+            Ackermann motion model for Nav2 AMCL.
+        </description>
+    </class>
+</library>

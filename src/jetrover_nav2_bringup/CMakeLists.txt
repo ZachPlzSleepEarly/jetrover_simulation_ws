@@ -7,14 +7,39 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(nav2_amcl REQUIRED)
+find_package(pluginlib REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+include_directories(include)
+add_library(ackermann_motion_model SHARED
+  src/ackermann_motion_model.cpp
+)
+ament_target_dependencies(ackermann_motion_model
+  nav2_amcl
+  pluginlib
+)
+pluginlib_export_plugin_description_file(nav2_amcl plugins.xml)
+install(
+  TARGETS ackermann_motion_model
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 install(DIRECTORY params DESTINATION share/${PROJECT_NAME})
 install(DIRECTORY maps DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY include DESTINATION include)
+install(FILES plugins.xml
+  DESTINATION share/${PROJECT_NAME}
+)
 
+ament_export_include_directories(include)
+ament_export_libraries(ackermann_motion_model)
+ament_export_dependencies(nav2_amcl pluginlib)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
