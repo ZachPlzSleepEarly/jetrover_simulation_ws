@@ -231,9 +231,9 @@
   </gazebo>
 
   <!-- LiDar -->
-  <gazebo reference="lidar_link">
+  <gazebo reference="lidar_frame">
     <sensor name='gpu_lidar' type='gpu_lidar'>
-      <pose>0 -0.02436 -0.0352 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <topic>scan</topic>
       <gz_frame_id>lidar_link</gz_frame_id>
       <update_rate>10</update_rate>
@@ -242,8 +242,8 @@
           <horizontal>
             <samples>800</samples>
             <resolution>1</resolution>
-            <min_angle>0.0</min_angle>
-            <max_angle>6.283185307</max_angle>
+            <min_angle>-2.73144027937</min_angle>
+            <max_angle>2.73144027937</max_angle>
           </horizontal>
           <vertical>
             <samples>1</samples>

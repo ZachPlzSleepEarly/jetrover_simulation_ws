@@ -573,6 +573,7 @@
       </geometry>
     </collision>
   </link>
+  <link name="lidar_frame" />
   <link name="lidar_link">
     <inertial>
       <origin xyz="-0.040099997002650094 -0.02389999910816517 -0.01766293669930608"
@@ -900,6 +901,12 @@
       rpy="7.006492321624085e-46 -0.0 0.0" />
     <parent link="back_shell_green_link" />
     <child link="lidar_link" />
+  </joint>
+  <joint name="lidar_frame_joint" type="fixed">
+    <origin xyz="0 -0.0244 -0.065"
+      rpy="0.0 0.0 0.0" />
+    <parent link="lidar_link" />
+    <child link="lidar_frame" />
   </joint>
   <joint name="l_gripper_joint" type="fixed">
     <origin xyz="0.029998859999999964 -0.0002617999999999987 8.199999999991548e-07"
